@@ -19,8 +19,6 @@ var bgHeight = cvs.height;
 var bx = 32;
 var by = 200;
 var gap = 95;
-var constant = pipeNorth.height + gap;
-var constant2 = cvs.height - constant;
 var pipes = [];
 pipes[0] = {
     px : bgWidth - 80,
@@ -36,6 +34,7 @@ function moveup(){
 document.addEventListener("keyup", moveup);
 
 function draw(){
+    constant = pipeNorth.height + gap;
     t++;
     cvx.drawImage(bg, 0, 0);
     cvx.drawImage(bird, bx, by);
