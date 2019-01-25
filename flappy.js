@@ -50,6 +50,9 @@ function draw(){
                 py : Math.floor(Math.random()*pipeNorth.height)-pipeNorth.height 
             }); 
         }
+        if( bx + bird.width >= pipes[i].px && bx <= pipes[i].px + pipeNorth.width && (by <= pipes[i].py + pipeNorth.height || by+bird.height >= pipes[i].py+constant) || by + bird.height >=  cvs.height - fg.height){
+            location.reload(); // reload the page
+        }
     }
     cvx.drawImage(fg, 0, bgHeight - fg.height);
 
