@@ -28,7 +28,7 @@ pipes[0] = {
 }
 
 var t = 0;
-
+var score = 0;
 function moveup(){
     by -= 25;
     t = 1;
@@ -53,10 +53,14 @@ function draw(){
         if( bx + bird.width >= pipes[i].px && bx <= pipes[i].px + pipeNorth.width && (by <= pipes[i].py + pipeNorth.height || by+bird.height >= pipes[i].py+constant) || by + bird.height >=  cvs.height - fg.height){
             location.reload(); // reload the page
         }
+        if(pipes[i].px == bx-5) score++;
     }
     cvx.drawImage(fg, 0, bgHeight - fg.height);
 
     by += 1*t*0.1;
+    cvx.fillStyle = "#000";
+    cvx.font = "20px monaco";
+    cvx.fillText("Score : "+score,10,cvs.height-20);
     requestAnimationFrame(draw);
 }
 
